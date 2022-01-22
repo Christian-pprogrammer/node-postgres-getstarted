@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const { pool } = require('./db');
 dotenv.config({path: './.env'});
 const router = require('./router');
 const app = express();

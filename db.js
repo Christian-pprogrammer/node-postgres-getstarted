@@ -7,4 +7,5 @@ const pool = new Pool({
     database: DB_NAME,
     port: DB_PORT
 });
+
 module.exports.pool = pool;
