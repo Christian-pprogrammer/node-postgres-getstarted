@@ -45,3 +45,18 @@ exports.updateTodo = async (req,res) => {
         });
     }
 }
+
+exports.deleteTodo = async (req,res) => {
+    try {
+        const uuid = req.params.uuid;
+        await pool.query(`DELETE FROM todo WHERE id = '${uuid}'`);
+        res.status(203).json({
+            message: "deleted successfully"
+        })
+    }catch(err) {
+        res.status(400).json({
+          status: false,
+          error: err.message,
+        });
+    }
+}
