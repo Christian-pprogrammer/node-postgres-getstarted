@@ -33,7 +33,7 @@ exports.updateTodo = async (req,res) => {
     try {
         const uuid = req.params.uuid;
         const updated = await pool.query(
-            `UPDATE todo SET title = ${req.body.title}, description = ${req.body.description} WHERE id = ${uuid} RETURNING *`
+            `UPDATE todo SET title = '${req.body.title}', description = '${req.body.description}' WHERE id = '${uuid}' RETURNING *`
         )    
         res.status(200).json({
             updated: updated.rows[0]
