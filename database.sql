@@ -1,0 +1,7 @@
+CREATE DATABASE api;
+
+CREATE TABLE todo(
+    id UUID PRIMARY KEY NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description VARCHAR(200) NOT NULL
+)
