@@ -3,7 +3,7 @@ exports.getTodos = async (req,res) => {
     try {
         const results = await pool.query('SELECT * FROM todo');
         res.status(200).json({
-            results
+            todos: results.rows
         })
     }catch(err) {
         res.status(400).json({
