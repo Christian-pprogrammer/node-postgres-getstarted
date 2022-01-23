@@ -15,13 +15,26 @@ const swaggerOptions = {
             servers: ['http://localhost:5000']
         }
     },
-    apis: ["./router.js"]
+    apis: ["index.js"]
 }
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 const app = express();
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+//Routes
+/**
+ * @swagger
+ * /:
+ * get:
+ *  description: Use the request to get all todos
+ *  response:
+ *      '200':
+ *          description: A successful response
+ */
+app.get('/', (req,res) => {
+    res.status(200).send("first endpoint");
+})
 app.use('/', router);
 app.listen(5000, () => {
     console.log('express app listening on port 5000');
